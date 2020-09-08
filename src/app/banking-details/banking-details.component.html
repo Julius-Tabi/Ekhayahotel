@@ -1,0 +1,89 @@
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+        input[type=text] {
+            width: 100%;
+            border: 2px solid#aaa;
+            border-radius: 4px;
+            margin: 8px 0;
+            outline: none;
+            padding: 8px;
+            box-sizing: border-box;
+            transition: .3s;
+        }
+        
+        input[type=text]:focus {
+            border-color: dodgerblue;
+            box-shadow: 0 0 8px 0 dodgerblue;
+        }
+        
+        input[type=number] {
+            width: 100%;
+            border: 2px solid#aaa;
+            border-radius: 4px;
+            margin: 8px 0;
+            outline: none;
+            padding: 8px;
+            box-sizing: border-box;
+            transition: .3s;
+        }
+        
+        input[type=number]:focus {
+            border-color: dodgerblue;
+            box-shadow: 0 0 8px 0 dodgerblue;
+        }
+        
+        input[type=date] {
+            width: 100%;
+            border: 2px solid#aaa;
+            border-radius: 4px;
+            margin: 8px 0;
+            outline: none;
+            padding: 8px;
+            box-sizing: border-box;
+            transition: .3s;
+        }
+        
+        input[type=date]:focus {
+            border-color: dodgerblue;
+            box-shadow: 0 0 8px 0 dodgerblue;
+        }
+        
+        input[type=button] {
+            width: 100%;
+            border: 2px solid#aaa;
+            border-radius: 4px;
+            margin: 8px 0;
+            outline: none;
+            padding: 8px;
+            box-sizing: border-box;
+            transition: .3s;
+        }
+        
+        input[type=date]:focus {
+            border-color: dodgerblue;
+            box-shadow: 0 0 8px 0 dodgerblue;
+        }
+    </style>
+    <div class="banking">
+        <h1 style="color:black">
+            Banking Details Form</h1>
+        <div class="font">
+            Bank Name:<br>
+            <select class="select" #Bankname><br>
+            <option value="undefined" selected disabled>Please Select Bank...</option>
+            <option>CAPITEC</option>
+            <option>FNB</option>
+            <option>ABSA</option>
+            <option>STANDARD BANK</option>
+            </select>
+            <br> Account Holder:<br>
+            <input type="text" #Accountholder placeholder="Account Holder" value="{{firstname + ' ' + lastname}}" readonly>
+            <br>Card number:<br>
+            <input type="number" #Cardno placeholder="Card Number" min="13" max="20" required>
+        </div>
+
+
+        <button type="submit" a routerLink="/display" (click)="list(Bankname.value, Accountholder.value,Cardno.value)">Finish</button>
+    </div>
+</body>

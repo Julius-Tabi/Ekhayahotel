@@ -1,0 +1,107 @@
+<body>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+        input[type=text] {
+            width: 100%;
+            border: 2px solid#aaa;
+            border-radius: 4px;
+            margin: 8px 0;
+            outline: none;
+            padding: 8px;
+            box-sizing: border-box;
+            transition: .3s;
+        }
+        
+        input[type=text]:focus {
+            border-color: dodgerblue;
+            box-shadow: 0 0 8px 0 dodgerblue;
+        }
+        
+        input[type=number] {
+            width: 100%;
+            border: 2px solid#aaa;
+            border-radius: 4px;
+            margin: 8px 0;
+            outline: none;
+            padding: 8px;
+            box-sizing: border-box;
+            transition: .3s;
+        }
+        
+        input[type=number]:focus {
+            border-color: dodgerblue;
+            box-shadow: 0 0 8px 0 dodgerblue;
+        }
+        
+        input[type=date] {
+            width: 100%;
+            border: 2px solid#aaa;
+            border-radius: 4px;
+            margin: 8px 0;
+            outline: none;
+            padding: 8px;
+            box-sizing: border-box;
+            transition: .3s;
+        }
+        
+        input[type=date]:focus {
+            border-color: dodgerblue;
+            box-shadow: 0 0 8px 0 dodgerblue;
+        }
+        
+        input[type=button] {
+            width: 100%;
+            border: 2px solid#aaa;
+            border-radius: 4px;
+            margin: 8px 0;
+            outline: none;
+            padding: 8px;
+            box-sizing: border-box;
+            transition: .3s;
+        }
+        
+        input[type=date]:focus {
+            border-color: dodgerblue;
+            box-shadow: 0 0 8px 0 dodgerblue;
+        }
+    </style>
+    <h1 style="color:black"> Ekhaya Hotel Booking Form</h1>
+    <div class="font">
+        First name:<br>
+        <input type="text" #firstname placeholder="Firstname" [(ngModel)]="firstname.value" #firstname="ngModel" required>
+
+        <br> Last name:<br>
+        <input type="text" #lastname placeholder="lastname" #lastname required>
+
+        <br> Phone number:<br>
+        <input type="number" #phonenumber placeholder="phonenumber" #phonenumber required>
+
+        <br> Email Address:<br>
+        <input type="text" #email placeholder="email" #email required>
+
+        <br>Available Rooms:<br>
+        <select class="select" #select placeholder="Available Rooms">
+        <option value="undefined" selected disabled>Please Select Room...</option>
+         <option>SUIT</option>
+          <option>DELUX</option>
+          <option>TOP NOTCH</option>
+      </select>
+
+        <br> Check In Date:<br>
+        <input type="date" placeholder="CheckIn" #CheckIndate required>
+        <br>Check Out Date:<br>
+        <input type="date" placeholder="CheckOut" #CheckOutdate required>
+        <br>
+        <button type="submit" routerLink="/banking-details" (click)="listb(firstname.value, lastname.value, phonenumber.value, email.value, select.value, CheckIndate.value, CheckOutdate.value)">Book</button>
+        <div>
+            <ul *ngFor="let book of arr ">
+                <li>
+                    {{book.firstname}} , {{book.lastname}} , {{book.phonenumber}} , {{book.email}} , {{book.select}}, {{book.CheckIndate}}, {{book.CheckOutdate}}
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
