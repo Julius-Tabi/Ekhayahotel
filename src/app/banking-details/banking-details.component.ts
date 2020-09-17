@@ -3,7 +3,9 @@ import { banking } from 'src/app/BankingArrayList';
 import bankingArray from 'src/app/bankingArray';
 import { booking } from '../arrayList';
 import bookingsArray from '../array';
-
+import { FormControl, FormBuilder, Validators, FormGroup } from '@angular/forms';
+import {SharedService } from 'src/app/shared/shared.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-banking-details',
@@ -11,34 +13,44 @@ import bookingsArray from '../array';
   styleUrls: ['./banking-details.component.css']
 })
 export class BankingDetailsComponent implements OnInit {
- arr = [];
-  firstname;
-  lastname;
+  arr = [];
   
-  Bankname;
-  Bankholder;
-  Cardnumber;
+  cardForm: FormGroup;
+
+  banked: boolean;
+ 
   
-  list(Bankname, Accountholder,Cardno) {
-    let Finish = new banking(Bankname, Accountholder, Cardno);
-    bankingArray.push(Finish);
-    console.log(bankingArray)
-    
-  }
-  
-  constructor() {
-    console.log(bookingsArray)
+  constructor(private fb: FormBuilder, private router: Router, private sharedService: SharedService) {
+    // console.log(bookingsArray)
   }
 
   ngOnInit(): void {
-    console.log(bookingsArray)
-     console.log(bookingsArray[0])
-    this.firstname = bookingsArray[0].firstname
-    console.log(bookingsArray[0].lastname)
-    this.lastname = bookingsArray[0].lastname
+    this.editbanking();
     
-    console.log(this.firstname)
-    console.log(this.lastname)
   }
-
+editbanking() {
+    this.cardForm = this.fb.group({
+      Bankname: ['', Validators.required],
+      Accountholder: ['', Validators.required],
+      Cardno: ['', [ Validators.required,Validators.minLength(16), Validators.maxLength(16)]],
+      Cvvno:['', [ Validators.required,Validators.minLength(3), Validators.maxLength(3)]],
+      CardExpDate: ['', Validators.required],
+    })
+}
+  get f(){
+    return this.cardForm.controls;
+  }
+  onSubmit() {
+    this.banked = true;
+    if (this.cardForm.valid) {
+    
+      this.sharedService.setcard(this.cardForm.value);
+      this.router.navigate(['/display']);
+  }
+  }
+   disableDat() {
+    var today = new Date();
+    // document.getElementsByName("txtDat")[0].setAttribute('min', today);
+    // console.log(today);
+  }
 }

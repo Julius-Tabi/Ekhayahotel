@@ -6,7 +6,7 @@ import { BankingDetailsComponent } from './banking-details/banking-details.compo
 import { DisplayComponent } from './display/display.component';
 
 export const router: Routes = [
-    // { path: '', redirectTo: 'app', pathMatch: 'full' },
+    
     {path: '', component: BookingComponent},
     { path: 'booking', component: BookingComponent },
     { path: 'banking-details', component: BankingDetailsComponent },

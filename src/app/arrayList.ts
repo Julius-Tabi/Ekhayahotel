@@ -4,7 +4,6 @@ export class booking{
   lastname;
   phonenumber;
   email; 
-  // Rooms;
     select;
   CheckIndate;
   CheckOutdate;
@@ -14,7 +13,7 @@ export class booking{
         this.lastname =lastname;
         this.phonenumber = phonenumber;
         this.email = email;
-        // this.Rooms = Rooms;
+        
         this.select = select;
         this.CheckIndate =CheckIndate;
         this.CheckOutdate = CheckOutdate;
