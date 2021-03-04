@@ -23,6 +23,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
+import { BookComponent } from './book/book.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import {MatSelectModule} from '@angular/material/select';
     BankingDetailsComponent, 
     DisplayComponent,
     EndDateValidatorDirective,
+    BookComponent,
     
     
     

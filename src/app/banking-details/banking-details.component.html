@@ -1,86 +1,92 @@
-<h1 style="color:black"> Ekhaya Hotel Banking Form</h1>
-<div class="container">
-    <div class=" row ">
-        <div class="col-md-6 booking-form">
-            <form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <span class="form-label">Bank Name</span>
-                        <select class="form-control" formControlName="Bankname">
+<header class="w3-white " style="justify-content: center; align-content: center;;height:100vh; flex-direction: column">
+    <!-- <img class="w3-image" src="/w3images/hotel.jpg" alt="The Hotel" style="min-width:1000px" width="1500" height="800"> -->
+    <div style="width: 100%; height: 100%;" class="w3-display-left  w3-col">
+        <div class="w3-container w3-red">
+            <h2><i class="fa fa-bed w3-margin-right"></i>EKHAYA 5 STAR HOTEL</h2>
+        </div>
+    </div>
+
+    <h1 style="color:black"> Ekhaya Hotel Banking Form</h1>
+    <div id="form" class="container">
+        <div class=" row ">
+            <div class="col-md-6 booking-form">
+                <form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <span class="form-label">Bank Name</span>
+                            <select class="form-control" formControlName="Bankname">
                          <option>CAPITEC</option>
                          <option>FNB</option>
                         <option>ABSA</option>
                         <option>STANDARD BANK</option>    
                         </select>
-                        <span class="error-block" *ngIf="!f.Bankname.valid && (f.Bankname.touched ||  banked)">
+                            <span class="error-block" *ngIf="!f.Bankname.valid && (f.Bankname.touched ||  banked)">
                             <p class="alert alert-warning">Please Select Your Bank</p>
                         </span>
-                        <span class=" select-arrow "></span>
+                            <span class=" select-arrow "></span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group text">
-                        <span class="form-label">Account Holder </span>
-                        <input type="text" formControlName="Accountholder" class="form-control" ngModel="Accountholder">
-                        <span class="error-block" *ngIf="!f.Accountholder.valid && (f.Accountholder.touched ||  banked)">
+                    <div class="col-md-12">
+                        <div class="form-group text">
+                            <span class="form-label">Account Holder </span>
+                            <input type="text" formControlName="Accountholder" class="form-control" ngModel="Accountholder">
+                            <span class="error-block" *ngIf="!f.Accountholder.valid && (f.Accountholder.touched ||  banked)">
                             <p class="alert alert-warning">Please provide Account holder Name</p>
                         </span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group text">
-                        <span class="form-label"> Card Number </span>
-                        <input type="text" formControlName="Cardno" class="form-control" minlength="16" maxlength="16" required>
-                        <span class="error-block" *ngIf="!f.Cardno.valid && (f.Cardno.touched || banked)">
+                    <div class="col-md-12">
+                        <div class="form-group text">
+                            <span class="form-label"> Card Number </span>
+                            <input type="text" formControlName="Cardno" class="form-control" minlength="16" maxlength="16" required>
+                            <span class="error-block" *ngIf="!f.Cardno.valid && (f.Cardno.touched || banked)">
                     <span *ngIf="f.Cardno.hasError('required')">
                             <p class="alert alert-danger">Please provide card number</p>
                         </span>
-                        <span class="error-block" *ngIf="f.Cardno.hasError('maxlength')">
+                            <span class="error-block" *ngIf="f.Cardno.hasError('maxlength')">
                             <p class="alert alert-danger">Invalid card number, card number cannot have more than 16 digits</p>
                     </span>
-                        <span class="error-block" *ngIf="f.Cardno.hasError('minlength')">
+                            <span class="error-block" *ngIf="f.Cardno.hasError('minlength')">
                             <p class="alert alert-danger">Invalid card number, card number cannot have less than 16 digits</p>
                     </span>
-                        </span>
+                            </span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-md-6">
-                    <div class="form-group text">
-                        <span class="form-label"> Cvv Number </span>
-                        <input type="text" formControlName="Cvvno" class="form-control" minlength="3" maxlength="3" required>
-                        <span class="error-block" *ngIf="!f.Cvvno.valid && (f.Cvvno.touched || banked)">
+                    <div class="col-md-12">
+                        <div class="form-group text">
+                            <span class="form-label"> Cvv Number </span>
+                            <input type="text" formControlName="Cvvno" class="form-control" minlength="3" maxlength="3" required>
+                            <span class="error-block" *ngIf="!f.Cvvno.valid && (f.Cvvno.touched || banked)">
                     <span *ngIf="f.Cvvno.hasError('required')">
                             <p class="alert alert-danger">Please provide Card CVV number</p>
                         </span>
-                        <span class="error-block" *ngIf="f.Cvvno.hasError('maxlength')">
+                            <span class="error-block" *ngIf="f.Cvvno.hasError('maxlength')">
                             <p class="alert alert-danger">Invalid Card CVV number cannot have more than 3 digits</p>
                     </span>
-                        <span class="error-block" *ngIf="f.Cvvno.hasError('minlength')">
+                            <span class="error-block" *ngIf="f.Cvvno.hasError('minlength')">
                             <p class="alert alert-danger">Invalid Card CVV number cannot have less than 3 digits</p>
                     </span>
-                        </span>
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 ">
-                    <div class="form-group">
-                        <span class="form-label">Card Expiry date </span>
-                        <input type="month" formControlName="CardExpDate" class="form-control">
-                        <span class="error-block" *ngIf="!f.CardExpDate.valid &&  (f.CardExpDate.touched ||  banked)">
+                    <div class="col-md-12 ">
+                        <div class="form-group">
+                            <span class="form-label">Card Expiry date </span>
+                            <input type="month" formControlName="CardExpDate" class="form-control">
+                            <span class="error-block" *ngIf="!f.CardExpDate.valid &&  (f.CardExpDate.touched ||  banked)">
                             <p class="alert alert-warning">Please Select Card EXP Date</p>
                         </span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-md-6 ">
-                    <div class="form-group text ">
-                        <button class="btn btn-lg btn-info btn-block">Finish</button>
-                    </div>
-                </div>
-            </form>
+
+                    <button style="width: 250px; margin-left: 40%; margin-top: 50px;" class="btn-sub ">Book</button>
+                </form>
+            </div>
+
+
         </div>
 
-
     </div>
-
-</div>
+</header>

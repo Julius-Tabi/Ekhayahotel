@@ -1,0 +1,108 @@
+<header class="w3-white " style="justify-content: center; align-content: center;;height:100vh; flex-direction: column">
+    <!-- <img class="w3-image" src="/w3images/hotel.jpg" alt="The Hotel" style="min-width:1000px" width="1500" height="800"> -->
+    <div style="width: 100%; height: 100%;" class="w3-display-left  w3-col">
+        <div class="w3-container w3-red">
+            <h2><i class="fa fa-bed w3-margin-right"></i>EKHAYA 5 STAR HOTEL</h2>
+        </div>
+        <div id="form" class="w3-container w3-white w3-padding-16" style="width: 90%; align-content: center;">
+            <h2 style="align-self: center; text-align: center;">Enter Your Details</h2>
+            <form [formGroup]="editForm" (ngSubmit)="onSubmit()" style="justify-self: center;align-self: center;">
+                <div class="w3-row-padding" style="margin:0 -16px;">
+                    <div class="w3-half">
+                        <label> First Name</label>
+                        <input type="text" formControlName="firstname" class="form-control" required>
+                        <span class="error-block" *ngIf="!f.firstname.valid && (f.firstname.touched ||  booked)">
+                            <p class="alert alert-warning">Please provide first name</p>
+                        </span>
+                    </div>
+                    <div class="w3-half">
+                        <label> Last Name</label>
+                        <input type="text" formControlName="lastname" class="form-control" required>
+                        <span class="error-block" *ngIf="!f.lastname.valid && (f.lastname.touched ||  booked)">
+                            <p class="alert alert-warning">Please provide last name</p>
+                        </span>
+                    </div>
+                    <div class="w3-half">
+                        <label><i class="fa fa-calendar-o"></i> ID/Passport No.</label>
+                        <input type="text" formControlName="idnumber" class="form-control" maxlength="13" required>
+                        <span class="error-block" *ngIf="!f.idnumber.valid && (f.idnumber.touched || booked)">
+                    <span *ngIf="f.idnumber.hasError('required')">
+                            <p class="alert alert-warning">Please provide Id/Passport number</p>
+                        </span>
+                        <span class="error-block" *ngIf="f.idnumber.hasError('maxLength')">
+                            <p class="alert alert-info">Id/Passport number cannot have more than 13 digits</p>
+                    </span>
+                        <span class="error-block" *ngIf="f.idnumber.hasError('minLength')">
+                            <p class="alert alert-info">Id/Passport number cannot have less than 13 digits</p>
+                    </span>
+                        </span>
+                    </div>
+                    <div class="w3-half">
+                        <label><i class="fa fa-calendar-o"></i> Phone No.</label>
+                        <input type="text" formControlName="phonenumber" class="form-control" minlength="10" maxlength="10" required>
+                        <span class="error-block" *ngIf="!f.phonenumber.valid && (f.phonenumber.touched || booked)">
+                    <span *ngIf="f.phonenumber.hasError('required')">
+                            <p class="alert alert-warning">Please provide mobile number</p>
+                        </span>
+                        <span class="error-block" *ngIf="f.phonenumber.hasError('maxLength')">
+                            <p class="alert alert-info">mobile number cannot have more than 10 digits</p>
+                    </span>
+                        <span class="error-block" *ngIf="f.phonenumber.hasError('minLength')">
+                            <p class="alert alert-info">mobile number cannot have less than 10 digits</p>
+                    </span>
+                        </span>
+                    </div>
+                    <div class="w3-half">
+                        <label><i class="fa fa-envelope"></i> Email Address</label>
+                        <input type="email" formControlName="email" class="form-control" required>
+                        <span class="error-block" *ngIf="!f.email.valid && (f.email.touched || booked)">
+                        <span *ngIf="f.email.hasError('required')">
+                        <p class="alert alert-warning">Please provide email</p>
+                    </span>
+                        <p class="alert alert-info">Please provide valid email</p>
+                        </span>
+                    </div>
+                    <div class="w3-half">
+                        <label><i class="fa fa-calendar-o"></i> Room Type</label>
+                        <select class="form-control" formControlName="roomType" required>
+                         <option>SINGLE</option>
+                        <option>DOUBLE</option>
+                        <option>DELUX</option>
+                        
+                </select>
+                        <span class="error-block" *ngIf="!f.roomType.valid && (f.roomType.touched ||  booked)">
+                            <p class="alert alert-warning">Please Select A Room</p>
+                        </span>
+                        <span class=" select-arrow "></span>
+                    </div>
+                    <div class="w3-half">
+                        <label><i class='far fa-calendar-alt'></i> Check In</label>
+                        <input type="date" (click)="disableData()" name="CheckIndate" formControlName="CheckIndate" class="form-control" [(ngModel)]="CheckIndate">
+                        <span class="error-block" *ngIf="!f.CheckIndate.valid &&  (f.CheckIndate.touched ||  booked)">
+                            <p class="alert alert-warning">Please Select Check in Date </p>
+                        </span>
+
+                    </div>
+                    <div class="w3-half">
+                        <label><i class='far fa-calendar-alt'></i> Check Out</label>
+                        <input type="date" (click)="disableDate()" name="CheckOutdate" formControlName="CheckOutdate" class="form-control" [(ngModel)]="CheckOutdate">
+                        <span class="error-block" *ngIf="!f.CheckOutdate.valid &&  (f.CheckOutdate.touched ||  booked)">
+                            <p class="alert alert-warning">Please Select Check out Date </p>
+                          
+                        </span>
+                        <span class="error-block" *ngIf="CheckIndate > CheckOutdate || CheckOutdate < CheckIndate">
+                            <p class="alert alert-danger">Check in must not be greater than Check out! </p>
+                        </span>
+
+                    </div> <br> <br> <br> <br>
+
+
+
+
+                </div>
+                <button style="width: 250px; margin-left: 40%; margin-top: 50px;" class="btn-sub ">Book</button>
+            </form>
+
+        </div>
+    </div>
+</header>
